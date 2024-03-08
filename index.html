@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemple de fonctions JavaScript</title>
+</head>
+<body>
+
+<!-- Section pour les fonctions de manipulation de chaînes -->
+<h2>Fonctions de manipulation de chaînes</h2>
+<p id="reverseString"></p>
+<p id="countCharacters"></p>
+<p id="capitalizeWords"></p>
+
+<!-- Section pour les fonctions du tableau -->
+<h2>Fonctions du tableau</h2>
+<p id="findMax"></p>
+<p id="findMin"></p>
+<p id="sumArray"></p>
+<p id="filterArray"></p>
+
+<!-- Section pour les fonctions mathématiques -->
+<h2>Fonctions mathématiques</h2>
+<p id="factorial"></p>
+<p id="isPrime"></p>
+<p id="fibonacciSequence"></p>
+
+<script>
+// Fonction pour inverser une chaîne de caractères
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+document.getElementById('reverseString').textContent = reverseString('Hello');
+
+// Fonction pour compter le nombre de caractères dans une chaîne
+function countCharacters(str) {
+    return str.length;
+}
+document.getElementById('countCharacters').textContent = countCharacters('Hello');
+
+// Fonction pour mettre en majuscule la première lettre de chaque mot dans une phrase
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+}
+document.getElementById('capitalizeWords').textContent = capitalizeWords('hello world');
+
+// Fonction pour trouver la valeur maximale dans un tableau
+function findMax(arr) {
+    return Math.max(...arr);
+}
+document.getElementById('findMax').textContent = findMax([5, 2, 8, 1, 9]);
+
+// Fonction pour trouver la valeur minimale dans un tableau
+function findMin(arr) {
+    return Math.min(...arr);
+}
+document.getElementById('findMin').textContent = findMin([5, 2, 8, 1, 9]);
+
+// Fonction pour calculer la somme des éléments d'un tableau
+function sumArray(arr) {
+    return arr.reduce((acc, curr) => acc + curr, 0);
+}
+document.getElementById('sumArray').textContent = sumArray([5, 2, 8, 1, 9]);
+
+// Fonction pour filtrer un tableau en fonction d'une condition
+function filterArray(arr, callback) {
+    return arr.filter(callback);
+}
+document.getElementById('filterArray').textContent = filterArray([5, 2, 8, 1, 9], num => num > 3);
+
+// Fonction pour calculer le factoriel d'un nombre
+function factorial(num) {
+    if (num === 0 || num === 1) {
+        return 1;
+    }
+    return num * factorial(num - 1);
+}
+document.getElementById('factorial').textContent = factorial(5);
+
+// Fonction pour vérifier si un nombre est premier
+function isPrime(num) {
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return num > 1;
+}
+document.getElementById('isPrime').textContent = isPrime(7);
+
+// Fonction pour générer une séquence de Fibonacci
+function fibonacciSequence(num) {
+    let sequence = [0, 1];
+    for (let i = 2; i < num; i++) {
+        sequence[i] = sequence[i - 1] + sequence[i - 2];
+    }
+    return sequence.slice(0, num);
+}
+document.getElementById('fibonacciSequence').textContent = fibonacciSequence(8);
+</script>
+</body>
+</html>
